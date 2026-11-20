@@ -17,15 +17,25 @@
 ## 怎么玩（最快路径）
 
 ```
-直接用浏览器打开 game/chess_service_final.html
+直接用浏览器打开 chess_service_final.html
 ```
 
-不需要安装、不需要服务器、不需要联网。它是一个自包含的单页应用。
+不需要安装、不需要服务器、不需要联网。
+
+> ⚠️ **必须保持 `chess_service_final.html` 与 `ai/` 目录同层**：HTML 里用
+> `<script src="ai/chess_barracks_ai.js">` 相对路径引用 AI 脚本，单独下载 HTML 放到别处会
+> 导致 AI 脚本 404（对局本身仍可下，但 AI 功能不可用）。
+> 只想要单文件？把 `ai/chess_barracks_ai.js` 一并下载并在旁边建 `ai/` 目录即可。
+
+两个可选功能需要额外的本地服务，不用就留空：
+
+- **外部 AI 接口**：默认留空，自动使用内置离线 AI；填 `http://127.0.0.1:8091/move` 之类才会外连
+- **联机大厅**：会打开 `http://127.0.0.1:8080`，需要另跑 `online-validation/`（或 `xiangqi-service-mode/server.mjs`）
 
 ## 仓库结构
 
 ```
-game/chess_service_final.html   主程序（约 400 KB 单文件：规则 + 界面 + AI）
+chess_service_final.html        主程序（约 400 KB 单文件：规则 + 界面），依赖同层 ai/
 tests/pao.test.mjs              「炮」相关规则的单测（node tests/pao.test.mjs）
 ai/                             独立 AI 实现 + 浏览器回归 + LLM 桥接实验
 xiangqi-service-mode/           规则内核拆分版（ESM 模块 + 关系编辑器 + Electron 壳）

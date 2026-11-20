@@ -1,0 +1,618 @@
+{
+  "date": "2026-09-26",
+  "baseline": [
+    {
+      "command": "ai/chess_barracks_ai.test.js",
+      "code": 0,
+      "output": "AI module tests passed\n"
+    },
+    {
+      "command": "ai/browser_regression.test.cjs",
+      "code": 0,
+      "output": "Browser regression tests passed\n"
+    }
+  ],
+  "results": [
+    {
+      "id": "R01",
+      "rule": "4.3",
+      "name": "1.0 空载兵不能进入水域",
+      "status": "PASS",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "id": "R02-2.0",
+      "rule": "4.3/7.7",
+      "name": "2.0 空载未激活兵可以入水并作为运输载体",
+      "status": "FAIL",
+      "expected": {
+        "move": true,
+        "ship": true,
+        "lookup": "unit"
+      },
+      "actual": {
+        "move": false,
+        "ship": false,
+        "lookup": null
+      }
+    },
+    {
+      "id": "R02-3.0",
+      "rule": "4.3/7.7",
+      "name": "3.0 空载未激活兵可以入水并作为运输载体",
+      "status": "FAIL",
+      "expected": {
+        "move": true,
+        "ship": true,
+        "lookup": "unit"
+      },
+      "actual": {
+        "move": false,
+        "ship": false,
+        "lookup": null
+      }
+    },
+    {
+      "id": "R02-4.0",
+      "rule": "4.3/7.7",
+      "name": "4.0 空载未激活兵可以入水并作为运输载体",
+      "status": "FAIL",
+      "expected": {
+        "move": true,
+        "ship": true,
+        "lookup": "unit"
+      },
+      "actual": {
+        "move": false,
+        "ship": false,
+        "lookup": null
+      }
+    },
+    {
+      "id": "R03",
+      "rule": "4.4",
+      "name": "将位于另一绑定将席时仍可在己方阵营区建设",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R04",
+      "rule": "4.4",
+      "name": "2.0+ 可在己方阵营区纯水点建设兵营",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R05",
+      "rule": "4.4",
+      "name": "陆地合法建设及禁止越界和重叠",
+      "status": "PASS",
+      "expected": [
+        true,
+        false,
+        false
+      ],
+      "actual": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "R06-xiang",
+      "rule": "12.1/12.2",
+      "name": "xiang 的水域生产资格",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R06-shi",
+      "rule": "12.1/12.2",
+      "name": "shi 的水域生产资格",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R06-fang",
+      "rule": "12.1/12.2",
+      "name": "fang 的水域生产资格",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R06-che",
+      "rule": "12.1/12.2",
+      "name": "che 的水域生产资格",
+      "status": "PASS",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "id": "R07",
+      "rule": "7.6",
+      "name": "普通炮吃子后进入目标原位置（公开动作接口）",
+      "status": "FAIL",
+      "expected": {
+        "ok": true,
+        "position": [
+          4,
+          7
+        ],
+        "targetGone": true
+      },
+      "actual": {
+        "ok": true,
+        "position": [
+          4,
+          4
+        ],
+        "targetGone": true
+      }
+    },
+    {
+      "id": "R08",
+      "rule": "10.6",
+      "name": "相邻目标可选择合法舰炮（车作为炮手）",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R09",
+      "rule": "10.6",
+      "name": "非相邻舰炮消耗炮手且船不移位",
+      "status": "PASS",
+      "expected": {
+        "legal": true,
+        "position": [
+          4,
+          4
+        ],
+        "cargo": 0,
+        "targetGone": true
+      },
+      "actual": {
+        "legal": true,
+        "position": [
+          4,
+          4
+        ],
+        "cargo": 0,
+        "targetGone": true
+      }
+    },
+    {
+      "id": "R10",
+      "rule": "13.2",
+      "name": "直升机可飞越棋子但不能停在占用点",
+      "status": "FAIL",
+      "expected": {
+        "over": true,
+        "occupied": false,
+        "diagonal": false
+      },
+      "actual": {
+        "over": false,
+        "occupied": false,
+        "diagonal": false
+      }
+    },
+    {
+      "id": "R11",
+      "rule": "13.3",
+      "name": "战机沿途可击毁水性舰船及乘员",
+      "status": "FAIL",
+      "expected": {
+        "kills": 1,
+        "targetGone": true,
+        "cargoEliminated": 1,
+        "landed": true
+      },
+      "actual": {
+        "kills": 0,
+        "targetGone": false,
+        "cargoEliminated": 0,
+        "landed": true
+      }
+    },
+    {
+      "id": "R12",
+      "rule": "13.3",
+      "name": "两步航线可提交而非强制六点（点击处理与确认）",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R13",
+      "rule": "13.3",
+      "name": "坠机只撞击落点友军，不伤邻格",
+      "status": "PASS",
+      "expected": {
+        "targetGone": true,
+        "neighborAlive": true
+      },
+      "actual": {
+        "targetGone": true,
+        "neighborAlive": true
+      }
+    },
+    {
+      "id": "R14-move",
+      "rule": "18.5",
+      "name": "威胁响应命令权限：move",
+      "status": "PASS",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "R14-attack",
+      "rule": "18.5",
+      "name": "威胁响应命令权限：attack",
+      "status": "PASS",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "R14-produce",
+      "rule": "18.5",
+      "name": "威胁响应命令权限：produce",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R14-placeBarracks",
+      "rule": "18.5",
+      "name": "威胁响应命令权限：placeBarracks",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R14-flightRoute",
+      "rule": "18.5",
+      "name": "威胁响应命令权限：flightRoute",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R14-load",
+      "rule": "18.5",
+      "name": "威胁响应命令权限：load",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R14-unload",
+      "rule": "18.5",
+      "name": "威胁响应命令权限：unload",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R14-reorder",
+      "rule": "18.5",
+      "name": "威胁响应命令权限：reorder",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R15",
+      "rule": "18.2",
+      "name": "响应期间可打开外交入口",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R16",
+      "rule": "12.5",
+      "name": "无本方兵营时不能生产寄生棋子（点击处理）",
+      "status": "FAIL",
+      "expected": {
+        "attached": false,
+        "stock": 2
+      },
+      "actual": {
+        "attached": true,
+        "stock": 1
+      }
+    },
+    {
+      "id": "R17-tietai",
+      "rule": "12.5/14.3",
+      "name": "tietai 先附着时异类寄生仍相互抵消",
+      "status": "PASS",
+      "expected": {
+        "outcome": "canceled",
+        "parasite": null,
+        "hostAlive": true,
+        "tietai": 1,
+        "dujie": 1
+      },
+      "actual": {
+        "outcome": "canceled",
+        "parasite": null,
+        "hostAlive": true,
+        "tietai": 1,
+        "dujie": 1
+      }
+    },
+    {
+      "id": "R17-dujie",
+      "rule": "12.5/14.3",
+      "name": "dujie 先附着时异类寄生仍相互抵消",
+      "status": "PASS",
+      "expected": {
+        "outcome": "canceled",
+        "parasite": null,
+        "hostAlive": true,
+        "tietai": 1,
+        "dujie": 1
+      },
+      "actual": {
+        "outcome": "canceled",
+        "parasite": null,
+        "hostAlive": true,
+        "tietai": 1,
+        "dujie": 1
+      }
+    },
+    {
+      "id": "R18",
+      "rule": "7.1",
+      "name": "将帅照面：陆地畅通、水域阻断、桥连通恢复",
+      "status": "PASS",
+      "expected": [
+        true,
+        false,
+        true
+      ],
+      "actual": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "id": "R19-false",
+      "rule": "11.3",
+      "name": "第二象过桥，激活状态 false",
+      "status": "PASS",
+      "expected": {
+        "reachable": true,
+        "bridgeStillPresent": true
+      },
+      "actual": {
+        "reachable": true,
+        "bridgeStillPresent": true
+      }
+    },
+    {
+      "id": "R19-true",
+      "rule": "11.3",
+      "name": "第二象过桥，激活状态 true",
+      "status": "PASS",
+      "expected": {
+        "reachable": true,
+        "bridgeStillPresent": true
+      },
+      "actual": {
+        "reachable": true,
+        "bridgeStillPresent": true
+      }
+    },
+    {
+      "id": "R20",
+      "rule": "11.1",
+      "name": "无对岸时桥可延伸至有效边界",
+      "status": "PASS",
+      "expected": {
+        "endX": 11,
+        "endY": 4,
+        "length": 8
+      },
+      "actual": {
+        "endX": 11,
+        "endY": 4,
+        "length": 8
+      }
+    },
+    {
+      "id": "R21",
+      "rule": "7.8",
+      "name": "士跳子坐标示例及敌方阻挡",
+      "status": "PASS",
+      "expected": [
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "R22",
+      "rule": "7.5",
+      "name": "车可被装载但不是舰船",
+      "status": "PASS",
+      "expected": {
+        "cargo": true,
+        "ship": false
+      },
+      "actual": {
+        "cargo": true,
+        "ship": false
+      }
+    },
+    {
+      "id": "R23",
+      "rule": "7.4",
+      "name": "已部署马可解除部署且消耗一步",
+      "status": "PASS",
+      "expected": {
+        "ok": true,
+        "deployed": false,
+        "spent": 1
+      },
+      "actual": {
+        "ok": true,
+        "deployed": false,
+        "spent": 1
+      }
+    },
+    {
+      "id": "R24",
+      "rule": "5.3",
+      "name": "清除命令恢复位置和步数",
+      "status": "PASS",
+      "expected": {
+        "moved": 5,
+        "restored": 4,
+        "spent": 0,
+        "commands": 0
+      },
+      "actual": {
+        "moved": 5,
+        "restored": 4,
+        "spent": 0,
+        "commands": 0
+      }
+    },
+    {
+      "id": "R25",
+      "rule": "5.4",
+      "name": "布阵后不能混入攻击",
+      "status": "PASS",
+      "expected": [
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "R26",
+      "rule": "16.1",
+      "name": "准备耗尽回补普通棋子但不回补将和兵",
+      "status": "PASS",
+      "expected": {
+        "ma": 2,
+        "general": 0,
+        "barracks": 0,
+        "eliminatedMa": 0
+      },
+      "actual": {
+        "ma": 2,
+        "general": 0,
+        "barracks": 0,
+        "eliminatedMa": 0
+      }
+    },
+    {
+      "id": "R27",
+      "rule": "14.1",
+      "name": "普通攻击触发铁幕：宿主活、攻击者和铁幕消失",
+      "status": "PASS",
+      "expected": {
+        "targetAlive": true,
+        "attackerGone": true,
+        "parasiteGone": true
+      },
+      "actual": {
+        "targetAlive": true,
+        "attackerGone": true,
+        "parasiteGone": true
+      }
+    },
+    {
+      "id": "R28",
+      "rule": "14.1",
+      "name": "舰炮也应触发铁幕抵挡攻击",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false
+    },
+    {
+      "id": "R29",
+      "rule": "10.7",
+      "name": "普通炮击毁载货兵营时货物也进淘汰区",
+      "status": "FAIL",
+      "expected": {
+        "barracks": 1,
+        "cargo": 1
+      },
+      "actual": {
+        "barracks": 1,
+        "cargo": 0
+      }
+    },
+    {
+      "id": "R30",
+      "rule": "19.3",
+      "name": "随机地图参数组合和种子复现（排除随机标识符及边界饱和）",
+      "status": "PASS",
+      "expected": {
+        "deterministic": true,
+        "seats": 4,
+        "preservedOverlap": true,
+        "nondecreasing": true
+      },
+      "actual": {
+        "deterministic": true,
+        "seats": 4,
+        "preservedOverlap": true,
+        "nondecreasing": true
+      }
+    },
+    {
+      "id": "R31",
+      "rule": "23",
+      "name": "4.0 所有阵营退出才整局判平",
+      "status": "PASS",
+      "expected": {
+        "ended": true,
+        "gameOver": true
+      },
+      "actual": {
+        "ended": true,
+        "gameOver": true
+      }
+    },
+    {
+      "id": "R32",
+      "rule": "5.2",
+      "name": "将军+兵营计步与响应固定一步",
+      "status": "PASS",
+      "expected": [
+        3,
+        1
+      ],
+      "actual": [
+        3,
+        1
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "counts": {
+    "pass": 23,
+    "fail": 23,
+    "error": 0
+  },
+  "mainAndTextEqual": true
+}

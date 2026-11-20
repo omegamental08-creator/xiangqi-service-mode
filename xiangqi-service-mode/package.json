@@ -1,0 +1,15 @@
+{
+  "name": "xiangqi-service-mode",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "web": "node server.mjs",
+    "desktop": "electron ."
+  },
+  "main": "electron-main.mjs",
+  "devDependencies": {
+    "electron": "^31.0.0"
+  }
+}

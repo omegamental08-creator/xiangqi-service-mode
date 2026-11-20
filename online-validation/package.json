@@ -1,0 +1,16 @@
+{
+  "name": "chess-barracks-online-validation",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Independent multiplayer validation module for the chess barracks game",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check client.js && node --check rulesets/classic-validation.js && node --check rulesets/opaque-air-validation.js && node --check rulesets/opaque-air-validation.test.js && node --check integration-smoke.js",
+    "test": "node rulesets/opaque-air-validation.test.js",
+    "smoke": "node integration-smoke.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

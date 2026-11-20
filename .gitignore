@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+package-lock.json.bak
+
+# browser automation leftovers
+.chrome-profile/
+*.crx
+
+# runtime logs and payload dumps
+logs/
+*.log
+log_*.txt
+probe.txt
+sp_test.txt
+
+# heavy / binary artefacts
+*.zip
+*.7z
+*.docx
+*.json.bak
+
+# editor and OS noise
+.obsidian/workspace.json
+.DS_Store
+Thumbs.db
+desktop.ini

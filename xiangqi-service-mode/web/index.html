@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>象棋兵役模式</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div><div class="eyebrow">XIANGQI SERVICE MODE</div><h1>象棋兵役模式 1.0</h1></div>
+      <div class="top-actions"><button id="new-game">新局</button><button id="rules">规则</button></div>
+    </header>
+    <main class="layout">
+      <section class="board-panel">
+        <div class="turnline"><strong id="turn">红方回合</strong><span id="status">选择一个棋子查看行动</span><b id="winner"></b></div>
+        <div id="board" class="board" aria-label="象棋兵役模式棋盘"></div><section class="relation-panel"><h2>将军席—阵营区关系</h2><p id="relation-status" class="muted">点击棋盘区域或矩阵表头开始配对</p><div id="relation-matrix" class="matrix-scroll"></div></section>
+        <div class="legend"><span><i class="dot red"></i>红方</span><span><i class="dot black"></i>黑方</span><span><i class="bridge-mark"></i>己方桥梁</span></div>
+      </section>
+      <aside class="side-panel">
+        <section class="info-block"><h2>回合状态</h2><div class="stat-grid"><div><span>步数</span><b id="move">1</b></div><div><span>桥梁</span><b id="bridges">0</b></div><div><span>红方兵营</span><b id="red-barracks">0 / 5</b></div><div><span>黑方兵营</span><b id="black-barracks">0 / 5</b></div></div></section>
+        <section class="info-block"><h2>当前选择</h2><p id="selected" class="muted">未选择</p><div id="actions" class="action-list"></div><button id="deploy-barrack" class="action">部署兵营到阵营区</button></section>
+        <section class="info-block"><h2>生产区</h2><div class="pool-row"><span>红</span><span id="red-pool">加载中</span></div><div class="pool-row"><span>黑</span><span id="black-pool">加载中</span></div></section>
+        <section class="info-block log-block"><h2>战报</h2><ol id="log"></ol></section>
+      </aside>
+    </main>
+    <dialog id="rules-dialog"><form method="dialog"><button class="close">×</button><h2>1.0 核心规则</h2><p>双方轮流行动，每回合一步，每回合最多一次主动攻击。将军在将席内时可以部署兵营；兵营负责生产车、马、象、士、炮。吃掉对方将军即获胜。</p><p>本页面是共享前端入口，规则由 core/rules.mjs 统一裁判。</p></form></dialog>
+    <script type="module" src="/app.mjs"></script>
+  </body>
+</html>
+
